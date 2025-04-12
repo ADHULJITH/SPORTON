@@ -1,0 +1,47 @@
+{% include 'user_header.html'%}
+<div class="Modern-Slider">
+    <div class="item">
+          <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+          <div class="text-content"><br>
+          </div></div></div>
+
+
+<h1>view Bookings</h1>
+<table class="table table-striped">
+    <tr>
+        <th>day</th>
+        <th>date and time</th>
+        <th>amount</th>
+        <th>from Time</th>
+        <th>to time</th>
+        <th>Game</th>
+        <th>Turf Name</th>
+        <th>Status</th>
+
+        <th></th>
+
+    </tr>
+
+    {% for i in data['book']%}
+    <tr style="color: black;">
+        <td>{{i['day']}}</td>
+        <td>{{i['Bdate']}}</td>
+        <td>{{i['amount']}}</td>
+        <td>{{i['from_time']}}</td>
+        <td>{{i['to_time']}}</td>
+        <td>{{i['game']}}</td>
+        <td>{{i['owner_first_name']}} {{i['owner_last_name']}}</td>
+        <td>{{i['status']}}</td>
+        {%if i['status']=='accept'%}
+        <td><a class="btn btn-success"href="user_payment?bid={{i['book_id']}}&amount={{i['amount']}}">payment</a></td>
+        {%endif%}
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+{%include 'footer.html'%}

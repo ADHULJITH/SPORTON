@@ -1,0 +1,66 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+
+<form method="post" enctype="multipart/form-data">
+{% if data['updates'] %}
+	<h2>Update Trainings</h2><br>
+	<table>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" class="form-control" required="" name="des" value="{{data['updates'][0]['description']}}"></td>
+		</tr>
+	
+		<tr>
+			<td align="center" colspan="2"><input class="btn btn-success" type="submit" name="submit_update" value="Update"></td>
+		</tr>
+	</table><br>
+
+{% else %}
+
+	<h2>Add Trainings</h2><br>
+	<table>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" required class="form-control" name="des"></td>
+		</tr>
+		
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+	{% endif %}
+</form>
+<br>
+{% if data['training'] %}
+<h2>Training</h2><br>
+<table class="table" style="width:800px">
+	<tr>
+		<th>Sl.No</th>
+		<th>Description</th>
+		<th>Date-Time</th>
+		<th>Status</th>
+	</tr>
+	{% for row in data['training'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		
+		<td>{{ row['description'] }}</td>
+		<td>{{ row['datetime'] }}</td>
+		<td>{{ row['status'] }}</td>
+		
+		<td><a class="btn btn-success" href="?action=update&fid={{row['training_id']}}">Update</a></td>
+		<td><a class="btn btn-danger" href="?action=remove&fid={{row['training_id']}}">Remove</a></td>
+		<td><a class="btn btn-info" href="coach_add_videos?id={{row['training_id']}}">Add Videos</a></td>
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No products Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

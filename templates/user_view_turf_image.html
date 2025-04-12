@@ -1,0 +1,35 @@
+{% include 'user_header.html'%}
+
+<div class="Modern-Slider">
+    <div class="item">
+          <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+          <div class="text-content"><br>
+          </div></div></div>
+
+<h1 style="color:green;">view turfs images</h1>
+<table class="table table-striped">
+    <tr>
+        <th>turfname</th>
+        <th>image</th>
+        <th>image_type</th>
+        <!-- <th>to_time</th> -->
+        <!-- <th>amount</th>
+        <th>date_time</th> -->
+
+    </tr>
+
+    {% for i in data['turf']%}
+    <tr>
+        <td>{{i['owner_first_name']}}</td>
+        <td> <img src="/{{i['image']}}" width="60" height="100" alt=""></td>
+        <td>{{i['image_type']}}</td>
+        <!-- <td>{{i['to_time']}}</td> -->
+        <!-- <td>{{i['amount']}}</td>
+        <td>{{i['date_time']}}</td> -->
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+{%include 'footer.html'%}

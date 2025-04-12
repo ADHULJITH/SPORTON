@@ -1,0 +1,90 @@
+{% include 'turf_header.html' %}
+
+<!-- <style type="text/css">
+	th{
+		text-align: right;
+	}
+</style> -->
+<style>
+
+
+</style>
+
+
+
+
+
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br>
+<center>
+	<h1 style="font:400 35px 'Calibri','Arial';
+  padding:20px;">TURF MATCH DETAILS</h1>
+	{% if data['match'] %}
+	<!-- <h4>{{ data['user'][0]['name'] }} V/S {{data['match'][0]['name']}}</h4><BR> -->
+	<table style="border-collapse: collapse; width: 73%; border: 1px solid #ccc;">
+		<tr>
+			<th >Selected Day</th>
+			<td>: {{ data['match'][0]['day'] }}</td>
+		</tr>
+		<tr>
+			<th>Selected Time</th>
+			<td>: {{data['match'][0]['from_time']}} to {{data['match'][0]['to_time']}}</td>
+		</tr>
+		<tr>
+			<th>Amount</th>
+			<td>: {{data['match'][0]['amount']}}</td>
+		</tr>
+		<tr>
+			<th>Match Updated date</th>
+			<td>: {{data['match'][0]['dt']}}</td>
+		</tr>
+	</table>
+	<br>
+
+	<div class="container">
+	<div class="table">
+	<div class="table-header">
+
+
+	<table  style="border-collapse: collapse; width: 100%; border: 1px solid #ccc;">
+		<tr>
+			<th  style="border: 1px solid #ccc; padding: 8px; background-color: #00FA9A;">USER</th>
+			<th style="border: 1px solid #ccc; padding: 8px; background-color: #00FA9A;">OPPONENT</th>
+			</tr>
+		<tr>
+
+
+
+			<th style="border: 1px solid #ccc; padding: 8px; background-color: #f2f2f2;">{{ data['user'][0]['name'] }}</th>
+			<th style="border: 1px solid #ccc; padding: 8px; background-color: #f2f2f2;">{{ data['match'][0]['name'] }}</th>
+		</tr>
+		<tr>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['user'][0]['house_name'] }}</td>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['match'][0]['house_name'] }}</td>
+		</tr>
+		<tr>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['user'][0]['place'] }}</td>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['match'][0]['place'] }}</td>
+		</tr>
+		<tr>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['user'][0]['pincode'] }}</td>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['match'][0]['pincode'] }}</td>
+		</tr>
+		<tr>
+			<td  style="border: 1px solid #ccc; padding: 8px;">{{ data['user'][0]['email'] }}</td>
+			<td style="border: 1px solid #ccc; padding: 8px;">{{ data['match'][0]['email'] }}</td>
+		</tr>
+		<tr>
+			<td style="border: 1px solid #ccc; padding: 8px;">{{ data['user'][0]['phone'] }}</td>
+			<td style="border: 1px solid #ccc; padding: 8px;">{{ data['match'][0]['phone'] }}</td>
+		</tr>
+	</table>
+	{% else %}
+	<h2>No Matches Scheduled</h2>
+	{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

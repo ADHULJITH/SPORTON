@@ -1,0 +1,51 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+
+<form method="post" enctype="multipart/form-data">
+
+
+	<h2>Add Videos</h2><br>
+	<table>
+		<tr>
+			<td>Title</td>
+			<td><input type="text" required class="form-control" name="tit"></td>
+		</tr>
+		<tr>
+			<td>File</td>
+			<td><input type="file" required class="form-control" name="vid"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-primary" name="submit" value="Add"></td>
+		</tr>
+	</table>
+</form>
+<br>
+{% if data['vdo'] %}
+<h2>Training</h2><br>
+<table class="table" style="width:800px">
+	<tr>
+		<th>Sl.No</th>
+		<th>Title</th>
+		<th>File</th>
+	</tr>
+	{% for row in data['vdo'] %}
+	<tr>
+		<td>{{ loop.index }}</td>
+		
+		<td>{{ row['title'] }}</td>
+		<td><a class="btn btn-danger" href="/{{ row['file_path'] }}">View Video</a></td>
+		
+		
+	</tr>
+	{% endfor %}
+</table>
+{% else %}
+<h2>No products Added Yet</h2>
+{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

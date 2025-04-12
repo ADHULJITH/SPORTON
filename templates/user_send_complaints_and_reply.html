@@ -1,0 +1,44 @@
+{% include 'user_header.html' %}
+<br><br>
+<div class="container">
+    <h2>Submit Complaint</h2>
+    <form method="POST" class="complaint-form">
+        <div class="form-group">
+            <label for="turfs">Select Turf:</label>
+            <select id="turfs" name="turfs" class="form-control">
+                <option value="option1">Select turf</option>
+                {% for i in data['turfs'] %}
+                    <option value="{{ i['turf_id'] }}">{{ i['owner_first_name'] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="complaint">Complaint:</label>
+            <textarea id="complaint" name="complaint" rows="4" cols="50" class="form-control"></textarea>
+        </div>
+        
+        <input type="submit" name="submit" value="Submit" class="btn btn-primary">
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Complaints</th>
+                <th>Reply</th>
+                <th>Turf</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data['cmp'] %}
+            <tr>
+                <td>{{ i['complaint'] }}</td>
+                <td>{{ i['reply'] }}</td>
+                <td>{{ i['owner_first_name'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'footer.html' %}

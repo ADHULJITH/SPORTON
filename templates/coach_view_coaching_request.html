@@ -1,0 +1,43 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1>Requested Users</h1>
+	<table class="table">
+		<tr>
+			<th>Sl.No</th>
+			<th>Name</th>
+			<th>House Name</th>
+			<th>Place</th>
+			<th>Pincode</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['user_details'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['first_name'] }}</td>
+			<td>{{ row['house_name'] }}</td>
+			<td>{{ row['place'] }}</td>
+			<td>{{ row['pincode'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+			{% if row['status']=='pending' %}
+          <td><a class="btn btn-info" href="?action=accept&id={{row['request_id']}}">ACCEPT</a>
+          <a class="btn btn-success" href="?action=reject&id={{row['request_id']}}">REJECT</a></td>
+          {% elif row['status']=="accepted" or row['status']=="paid"%}
+          <td><a class="btn btn-success" href="coach_chat_user?id={{row['login_id']}}">Chat</a></td>
+           <td><a class="btn btn-info" href="coach_view_payments?id={{row['login_id']}}">Payments</a></td>
+          {% else %}
+          <td>{{row['status']}}</td>
+          {% endif %}
+
+		</tr>
+		{% endfor %}
+	</table>
+</center><br><br><br><br><br>
+{% include 'footer.html' %}

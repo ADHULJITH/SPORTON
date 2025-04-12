@@ -1,0 +1,86 @@
+{% include 'user_header.html' %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Styles for the buttons */
+    .btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .btn:hover {
+        background-color: #218838;
+    }
+
+    /* Additional styles */
+    h1 {
+        color: #333;
+    }
+
+    /* Styles for card view */
+    .card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 50px;
+        margin-bottom: 20px;
+        width: 500px;
+        float: left;
+        margin-left: 140px; /* Added margin between cards */
+
+        margin-right: 80px; /* Added margin between cards */
+    }
+
+    .card img {
+        max-width: 400px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="Modern-Slider">
+    <div class="item">
+        <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+        <div class="text-content"><br></div>
+    </div>
+</div>
+<br><br>
+<h1>Turf Booking</h1>
+<br><br>
+<div class="card">
+    <img src="/static/im.jpg" width="400px" alt="Indoor Turf">
+    <p>Indoor Turf Booking</p>
+    <p>Book indoor turf for various indoor sports activities.</p>
+    <a class="btn" href="user_indoor?sid={{sid}}&amount={{amount}}&date_time={{date_time}}">Book Indoor Turf</a>
+</div>
+
+<div class="card">
+    <img src="/static/im.jpg" alt="Outdoor Turf">
+    <p>Outdoor Turf Booking</p>
+    <p>Book outdoor turf for outdoor sports activities.</p>
+    <a class="btn" href="user_outdoor?sid={{sid}}&amount={{amount}}&date_time={{date_time}}">Book Outdoor Turf</a>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+{% include 'footer.html' %}
+
+
+

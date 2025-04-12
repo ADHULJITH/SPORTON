@@ -1,0 +1,38 @@
+{% include 'user_header.html'%}
+
+
+<br><br><br>
+
+<h1 style="color:green;">Schedule Match</h1>
+<table class="table table-striped">
+    <tr>
+        <th>date_time</th>
+        <th>day</th>
+        <th>from_time</th>
+        <th>to_time</th>
+        <th>turf_place</th>
+        <th>place</th>
+        <th>amount</th>
+        <th>status</th>
+
+    </tr>
+
+    {% for i in data['view']%}
+    <tr>
+        <td>{{i['date_time']}}</td>
+        <td>{{i['day']}}</td>
+        <td>{{i['from_time']}}</td>
+        <td>{{i['to_time']}}</td>
+        <td>{{i['turf_place']}}</td>
+        <td>{{i['place']}}</td>
+        <td>{{i['amount']}}</td>
+        <td>{{i['status']}}</td>
+        <td><a href="?action=accept&stid={{i['match_id'] }}" class="btn btn-warning btn-sm">accept</a></td>
+        <td><a href="?action=reject&stid={{i['match_id'] }}" class="btn btn-warning btn-sm">reject</a></td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+{%include 'footer.html'%}

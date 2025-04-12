@@ -1,0 +1,25 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1>Scheduled Time</h1>
+	<table class="table" style="width: 500px">
+	<tr>
+			<th>Sl.No</th>
+			<th>Date</th>
+			<th>Time</th>
+		</tr>
+		{% for row in data['ts'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['time'] }}</td>
+			
+		</tr>
+		{% endfor %}
+	</table>
+</center><br><br>
+{% include 'footer.html' %}

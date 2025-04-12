@@ -1,0 +1,49 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1>Chat</h1>
+<center>
+	  <table class="table" style="width: 600px">
+        
+        {% for row in data['chat'] %}
+        <tr>
+        {% if row['sender_id'] == data['lid'] %}
+        <td><input hidden="" type="text" name=""   class="form-control"></td>
+          <td><input type="text" name="" readonly=""  class="form-control" value="{{row['message']}}">
+          </td>
+        {% else %}
+        
+          <td><input type="text" name=""  readonly="" value="{{row['message']}}"  class="form-control" >
+          </td>
+          <td><input hidden="" type="text"   class="form-control" name=""></td>
+        {% endif %}
+        </tr>
+        {% endfor %}
+      </table>
+
+
+		    <form method="post">
+     <!--  <h1>Send Message</h1> -->
+      <table class="table" style="width: 600px">
+        <tr>
+         <!--  <th>Message</th> -->
+          <td colspan="2" align="right"><input type="text" name="msg" pattern="[a-zA-Z\s]{0,30}" title="enter alphabets only" class="form-control"></td>
+          <td><input type="submit" name="submit" value="SEND" class="btn btn-info"></td>
+        </tr>
+      </table>
+            
+
+  <center>
+      <br>
+     
+    
+
+  
+
+</center>
+</center><br><br><br><br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,67 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<form method="post" enctype="multipart/form-data">
+
+<h1>Coach Details</h1><br>
+	<table class="table" style="width: 600px">
+		<tr>
+			<td>First Name</td>
+			<td><input type="text" value="{{data['updates'][0]['fname']}}" required class="form-control" name="fn"></td>
+		</tr>
+		<tr>
+			<td>Last Name</td>
+			<td><input type="text" value="{{data['updates'][0]['lname']}}" required class="form-control" name="ln"></td>
+		</tr>
+		<tr>
+			<td>Place</td>
+			<td><input type="text" value="{{data['updates'][0]['place']}}" class="form-control" required name="pl"></td>
+		</tr>
+
+		<tr>
+			<td>Phone</td>
+			<td><input type="text" pattern="[0-9]{10}" value="{{data['updates'][0]['phone']}}" required class="form-control" name="ph"></td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><input type="email" value="{{data['updates'][0]['email']}}" required class="form-control" name="em"></td>
+		</tr>
+		<tr>
+			<td>Age</td>
+			<td><input type="text" value="{{data['updates'][0]['age']}}" class="form-control" required name="age"></td>
+		</tr>
+
+		<tr>
+			<td>Gender</td>
+			<td>
+				<input type="radio" checked="" name="gen" value="Male">Male
+				<input type="radio" name="gen" value="Female">Female
+				<input type="radio" name="gen" value="Others">Others
+			</td>
+		</tr>
+		<tr>
+			<td>Description</td>
+			<td><input type="text" value="{{data['updates'][0]['description']}}" required class="form-control" name="des"></td>
+		</tr>
+		<tr>
+			<td>Sports Type</td>
+			<td><input type="text" value="{{data['updates'][0]['sports_type']}}" class="form-control" required name="st"></td>
+		</tr>
+		<tr>
+			<td>Fee Amount</td>
+			<td><input type="text" value="{{data['updates'][0]['fee_amount']}}" class="form-control" required name="fa"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit_update" value="Update"></td>
+		</tr>
+	</table>
+
+
+
+
+</center><br><br>
+{% include 'footer.html' %}

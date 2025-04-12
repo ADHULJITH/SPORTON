@@ -1,0 +1,28 @@
+{% include 'user_header.html'%}
+
+
+
+
+<h1>view Faclulity</h1>
+<table class="table table-striped">
+    <tr>
+        <th>facility</th>
+        <th>description</th>
+        <th>image</th>
+        <th>date</th>
+      
+    </tr>
+
+    {% for i in data['fac']%}
+    <tr>
+        <td>{{i['facility']}}</td>
+        <td>{{i['description']}}</td>
+        <td><img src="/{{ i['image'] }}" width="80" height="150" alt=""></td>
+        <td>{{i['date']}}</td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+
+{%include 'footer.html'%}
