@@ -1,0 +1,143 @@
+{% include 'user_header.html' %}
+<div class="Modern-Slider">
+    <div class="item">
+          <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+          <div class="text-content"><br>
+          </div></div></div>
+<div class="container">
+    <h1>Send Feedback</h1>
+
+    <form action="" method="post" class="feedback-form">
+
+        <tr>
+            <th style="color: black;">turf</th>
+            <td>
+                <select name="mat_id" class="form-control" required="">
+                    <option>select</option>
+                    {% for row in  data['turf']%}
+                    <option value="{{row['turf_id']}}">{{row['owner_first_name']}}</option>
+                    {%endfor%}
+                </select>
+            </td>
+                    
+                </td>
+            </tr>
+
+
+
+            <div class="form-group">
+                <label for="title">title:</label>
+                <input type="text" id="title" name="title" class="form-control">
+            </div>
+        <div class="form-group">
+            <label for="feedback">Feedback:</label>
+            <input type="text" id="feedback" name="feedback" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+<table>
+    <tr>
+        <th>Feedback</th>
+        <th>Reply</th>
+        <th>Date</th>
+    </tr>
+    {% for i in data['view'] %}
+    <tr>
+        <td>{{ i['feedback'] }}</td>
+        <td>{{ i['reply'] }}</td>
+        <td>{{ i['date'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+<style>
+
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    /* Table header style */
+    th {
+        background-color: #f2f2f2;
+        padding: 8px;
+        text-align: left;
+    }
+
+    /* Table cell style */
+    td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Alternate row color */
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    /* Hover effect */
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+
+
+.container {
+    margin: 20px auto;
+    width: 80%;
+}
+
+.feedback-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+</style>
+
+{%include 'footer.html'%}

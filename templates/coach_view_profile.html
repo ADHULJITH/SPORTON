@@ -1,0 +1,59 @@
+{% include 'coach_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center><br>
+                	<center>
+	<h1>My Profile</h1><br>
+	<table class="table" style="width: 600px">
+		{% for row in data['coach'] %}
+		<tr>
+									<th>First Name :</th>
+									<td>{{row['fname']}}</td>
+								</tr>
+								<tr>
+									<th>Last Name :</th>
+									<td>{{row['lname']}}</td>
+								</tr>
+								<tr>
+									<th>Place :</th>
+									<td>{{row['place']}}</td>
+								</tr>
+								<tr>
+									<th>Phone :</th>
+									<td>{{row['phone']}}</td>
+								</tr>
+								<tr>
+									<th>Email :</th>
+									<td>{{row['email']}}</td>
+								</tr>
+								<tr>
+									<th>Dob :</th>
+									<td>{{row['age']}}</td>
+								</tr>
+								<tr>
+									<th>Gender :</th>
+									<td>{{row['gender']}}</td>
+								</tr>
+
+								<tr>
+									<th>Description :</th>
+									<td>{{row['description']}}</td>
+								</tr>
+								<tr>
+									<th>Sports Type :</th>
+									<td>{{row['sports_type']}}</td>
+								</tr>
+								<tr>
+									<th>Fee Amount :</th>
+									<td>{{row['fee_amount']}}</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="center"><a class="btn btn-info" href="coach_edit_profile?id={{row['coach_id']}}">Edit</a></td>
+								</tr>
+								{% endfor %}
+	</table>
+</center><br><br>
+{% include 'footer.html' %}

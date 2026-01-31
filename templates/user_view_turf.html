@@ -1,0 +1,27 @@
+{% include 'user_header.html'%}
+<br><br><br><br><br>
+<h1 style="color:green;" align="center">View Turf</h1>
+<br><br><br>
+
+<div class="card-deck">
+    {% for i in data['turf'] %}
+    <div class="card">
+        <img src="\static\turf.jpg" class="card-img-top" alt="Turf Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ i['turf_place'] }}</h5>
+            <p class="card-text">Owner: {{ i['owner_first_name'] }} {{ i['owner_last_name'] }}</p>
+            <p class="card-text">Landmark: {{ i['landmark'] }}</p>
+            <p class="card-text">Pincode: {{ i['pincode'] }}</p>
+            <p class="card-text">Phone: {{ i['phone'] }}</p>
+            <p class="card-text">Email: {{ i['email'] }}</p>
+            <a href="user_view_slot_turf?id={{ i['turf_id'] }}" class="btn btn-info">View Slots Time</a>
+            <a href="user_facilities?id={{i['turf_id'] }}" class="btn btn-success">View Facilities</a>
+            <a href="user_view_single_turf_image?id={{ i['turf_id'] }}" class="btn btn-success">View Image</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<br><br><br><br><br><br>
+
+{% include 'footer.html'%}

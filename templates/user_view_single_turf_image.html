@@ -1,0 +1,23 @@
+{% include 'user_header.html'%}
+
+<h1 style="color:green;">View Turf Images</h1>
+
+<div class="row">
+  {% for i in data['turf'] %}
+  <div class="col-md-4 mb-4">
+    <div class="card">
+      <img src="/{{i['image']}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{i['owner_first_name']}}</h5>
+        <p class="card-text">Image Type: {{i['image_type']}}</p>
+        <!-- You can add more details here if needed -->
+        <!-- <p class="card-text">To Time: {{i['to_time']}}</p>
+        <p class="card-text">Amount: {{i['amount']}}</p>
+        <p class="card-text">Date Time: {{i['date_time']}}</p> -->
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% include 'footer.html'%}

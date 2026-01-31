@@ -1,0 +1,41 @@
+{% include 'turf_header.html' %}
+<div class="Modern-Slider">
+          <div class="item">
+                <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+                <div class="text-content"><br>
+                </div></div></div>
+                <br><br><center>
+	<h1 style="font:400 35px 'Calibri','Arial';
+  padding:20px;">FEEDBACK DETAILS</h1>
+	{% if data['feedback'] %}
+	<table class="table" style="border-spacing: 1; 
+  border-collapse: collapse;
+  background:white; 
+  border-radius:6px;
+  overflow:hidden;
+  max-width:800px; 
+  width:100%;
+  margin:0 auto;
+  position:relative;">
+		<tr>
+			<th style="background:#00FA9A;">Sl.No</th>
+			<th style="background:#00FA9A;">Customer Name</th>
+			<th style="background:#00FA9A;">Title</th>
+			<th style="background:#00FA9A;">Description</th>
+			<th style="background:#00FA9A;">Updated on</th>
+		</tr>
+		{% for row in data['feedback'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ row['name'] }}</td>
+			<td>{{ row['title'] }}</td>
+			<td>{{ row['description'] }}</td>
+			<td>{{ row['date_time'] }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}<br>
+	<h3 style="color:orange">No Feedback History</h3><br>
+	{% endif %}
+</center><br><br>
+{% include 'footer.html' %}

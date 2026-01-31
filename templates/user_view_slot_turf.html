@@ -1,0 +1,36 @@
+{% include 'user_header.html'%}
+
+<div class="Modern-Slider">
+    <div class="item">
+          <img src="/static/assets/images/slide-01.jpg" width="100%" height="70px">
+          <div class="text-content"><br>
+          </div></div></div>
+<h1 style="color:green;" align="center">View slots</h1>
+<form method="post">
+<table class="table table-striped">
+    <tr>
+        <th>day</th>
+        <th>from_time</th>
+        <th>turf_place</th>
+        <th>to_time</th>
+        <th>amount</th>
+        <th>date_time</th>
+        <th></th>
+    </tr>
+
+    {% for i in data['slots']%}
+    <tr>
+        <td>{{i['day']}}</td>
+        <td>{{i['from_time']}}</td>
+        <td>{{i['turf_place']}}</td>
+        <td>{{i['to_time']}}</td>
+        <td>{{i['amount']}}</td>
+        <td>{{i['date_time']}}</td>
+        <td><a class="btn btn-success" href="user_booking?sid={{i['slot_id']}}&day={{i['day']}}&from_time={{i['from_time']}}&to_time={{i['to_time']}}&date_time={{i['date_time']}}&amount={{i['amount']}}&id={{i['turf_id']}}">Book</a></td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+<br><br><br><br><br><br>
+{%include 'footer.html'%}
